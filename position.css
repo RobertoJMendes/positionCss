@@ -1,0 +1,61 @@
+/* static - é o padrão */
+/* retative - posição que pode modificar as direções, mas pode causar sobreposição de elemetos */
+/* absolute - pode se referenciar pela tela ou por algum elemento, geralmente usado com filho da relative */
+/* fixed - posição que fixa o elemento na tela */
+/* sticky - uma mistura de fixed com relative */
+.static {
+    color: red;
+    height: 50px;
+    background-color: #ccc;
+    border: 1px solid #222;
+    padding: 10px;
+    left: 20px; /* mesmo eu "solicitando" o movimento do elemento, ele não se move, pois é static */
+}
+div {
+    height: 50px;
+    background-color: #ccc;
+    border: 1px solid #222;
+    padding: 10px;
+}
+/* relative */
+.relative {
+    background-color: #321;
+    position: relative;
+    color: #fff;
+}
+.relative-alterada {/* apartir do momento que a div é para relative, ela se distância em relação ao
+    fluxo do html do top, e distância do canto da tela sua outra referência */ 
+    top: 20px;
+    left: 20px;
+    /* nesse momento ela "invade" o outro elemento, algo que não é desejável neste momento */
+}
+/* absolute */
+.absolute {
+    height: 25px;
+    width: 70px;
+    background-color: #914; /* até este momento o elemento segue o fluxo do html */
+    position: absolute; /* apartir daqui, com a adesão de top & right, o elemento se movimenta e invade outros elemento */ 
+    top: 20px;
+    right: 20px;    
+}
+/* fixed */ 
+html {
+    padding-bottom: 1000px;
+}
+.fixed {
+    width: 50px;
+    height: 50px;
+    background-color: #528;
+    position: fixed; /* até este momento ele segue e respita o fluxo do html */
+    top: 10px; /* apartir deste momento, com a adesão de top & left, ele invade outros elementos e segue a orientação do html */
+    left: 100px;
+    color: #fff;
+}
+/* sticky */
+.sticky { /* o elemento segue o html/body */
+    height: 50px;
+    width: 100px;
+    top: 10px;
+    background-color: #881;
+    position: sticky;
+}
